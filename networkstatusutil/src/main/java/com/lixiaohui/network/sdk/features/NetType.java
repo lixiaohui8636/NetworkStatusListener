@@ -1,4 +1,4 @@
-package com.lixiaohui.network.sdk.type;
+package com.lixiaohui.network.sdk.features;
 
 /**
  * @Author: Lee
@@ -6,15 +6,14 @@ package com.lixiaohui.network.sdk.type;
  * @Desc:
  */
 public enum NetType {
-    //有网络
+    //所有
     AUTO,
     //WIFI网络
     WIFI,
-    //
+    //net网络
     CMNET,
-
+    //wap网络
     CMWAP,
-
     //没有网络
-    NONE
+    DISABLE
 }

@@ -1,6 +1,4 @@
-package com.lixiaohui.network.sdk.annotation;
-
-import com.lixiaohui.network.sdk.type.NetType;
+package com.lixiaohui.network.sdk.features;
 
 import java.lang.reflect.Method;
 
@@ -9,7 +7,7 @@ import java.lang.reflect.Method;
  * @Date: 2019-08-07
  * @Desc: 保存符合要求的网络监听注解反方法，封装类
  */
-public class MethodManager {
+public class ObserverMethod {
     //参数类型
     private Class<?> type;
 
@@ -19,7 +17,7 @@ public class MethodManager {
     //需要执行的方法
     private Method method;
 
-    public MethodManager(Class<?> type, NetType netType, Method method) {
+    public ObserverMethod(Class<?> type, NetType netType, Method method) {
         this.type = type;
         this.netType = netType;
         this.method = method;

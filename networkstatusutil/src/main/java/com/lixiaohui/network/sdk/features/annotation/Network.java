@@ -1,6 +1,6 @@
-package com.lixiaohui.network.sdk.annotation;
+package com.lixiaohui.network.sdk.features.annotation;
 
-import com.lixiaohui.network.sdk.type.NetType;
+import com.lixiaohui.network.sdk.features.NetType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -16,5 +16,4 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Network {
     NetType netType() default NetType.AUTO;
-
 }

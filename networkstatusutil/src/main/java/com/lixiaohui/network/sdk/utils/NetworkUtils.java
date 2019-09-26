@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.lixiaohui.network.sdk.type.NetType;
+import com.lixiaohui.network.sdk.features.NetType;
 
 /**
  * @Author: Lee
@@ -37,11 +37,11 @@ public class NetworkUtils {
     public static NetType getNetType(Context context){
         ConnectivityManager manager = (ConnectivityManager) context.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         if(manager == null){
-            return NetType.NONE;
+            return NetType.DISABLE;
         }
         NetworkInfo networkInfo = manager.getActiveNetworkInfo();
         if(networkInfo == null){
-            return NetType.NONE;
+            return NetType.DISABLE;
         }
 
         int type = networkInfo.getType();
@@ -54,7 +54,7 @@ public class NetworkUtils {
         }else if(type == ConnectivityManager.TYPE_WIFI){
             return NetType.WIFI;
         }
-        return NetType.NONE;
+        return NetType.DISABLE;
     }
 
 
