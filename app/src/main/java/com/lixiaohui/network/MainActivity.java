@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.lixiaohui.network.sdk.NetworkManager;
 import com.lixiaohui.network.sdk.features.annotation.Network;
 import com.lixiaohui.network.sdk.features.NetType;
+import com.lixiaohui.network.sdk.utils.NetworkUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         NetworkManager.getInstance().registerObserver(this);
     }
+    NetType netType = NetworkUtils.getNetType(this);
 
     @Network(netType = NetType.AUTO)
     public void aaa(NetType netType) {
@@ -40,5 +42,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    protected void onDestroy() {
+        //注销监听，防止内存泄露
+        NetworkManager.getInstance().unregisterObserver(this);
+        super.onDestroy();
+    }
 }
